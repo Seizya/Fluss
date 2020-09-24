@@ -1,6 +1,8 @@
 // キャッシュファイルの指定
 var CACHE_NAME = 'fluss_cash-01';
 var urlsToCache = [
+    "/",
+    "./index.html",
     "./img/icon.png",
     "./manifest.json",
     "./main.js",
