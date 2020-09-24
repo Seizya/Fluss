@@ -1,17 +1,29 @@
+<!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <title>Fluss</title>
+<head>
+    <meta charset="utf-8">
+    <!-- スマホ対応するなら以下をコメントアウトするなりして ↓ -->
+    <!-- <meta name="viewport" content="width=device-width,minimum-scale=1.0, initial-scale=1.0, maximum-scale=10.0, shrink-to-fit=no"> -->
+    <title>Fluss</title>
+    <link rel="manifest" href="./manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorkwer.register('./sw.js').then(function (reg) {
+                    console.log(
+                        "[Service Worker] Registered", reg)
+                }).catch(function (err) {
+                    console.error(
+                        "[Service Worker] Failed to Register", err)
+                })
+            });
+        }
+    </script>
+</head>
 
-        <link rel="manifest" href="manifest.json">
-        <script>
-            navigator.serviceWorker.register('./sw.js')
-        </script>
-    </head>
-
-    <body>
-        Fluss
-    </body>
+<body>
+    Fluss
+</body>
 
 </html>
