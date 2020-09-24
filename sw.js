@@ -26,8 +26,7 @@ self.addEventListener('install', function (event) {
 // リソースフェッチ時のキャッシュロード処理
 self.addEventListener('fetch', function (event) {
     // キャッシュファイル一覧に含まれているか（他ドメインからも許可するなら、urlsToCacheを絶対パスにして、下のreplace関数を削除）
-    // if (urlsToCache.includes(event.request.url.replace("https://seizya.github.io/Fluss/", "./"))) {
-    if (urlsToCache.includes(event.request.url.replace("https://repos.a01sa01to.com/Fluss/", "./"))) {
+    if (urlsToCache.includes(event.request.url.replace("https://seizya.github.io/Fluss/", "./"))) {
         console.log('[Service Worker] Fetching', event.request.url);
         event.respondWith(
             caches
