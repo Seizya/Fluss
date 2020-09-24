@@ -5,7 +5,9 @@
         <title>Fluss</title>
 
         <link rel="manifest" href="manifest.json">
-        <script src="main.js"></script>
+        <script>
+            navigator.serviceWorker.register('/sw.js')
+        </script>
     </head>
 
 </html>
