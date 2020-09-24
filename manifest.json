@@ -1,0 +1,11 @@
+{
+    "short_name": "Fluss",
+    "name": "Fluss limitless tree memo",
+    "start_url": "https://fluss.glitch.me/index.html",
+    "display": "standalone",
+    "icons": [{
+        "src": "image/icon.png",
+        "type": "image/png",
+        "sizes": "512*512"
+    }]
+}
