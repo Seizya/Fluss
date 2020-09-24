@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+#header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 8vh;
+
+    color: rgba(230, 230, 230, 1);
+
+    background-color: rgba(00, 76, 113, 1);
+    border-bottom: 3px solid rgba(230, 230, 230, 1);
+}
+
+#header_icon {
+    position: absolute;
+    left: 1vh;
+    top: 1vh;
+    width: 6vh;
+    height: 6vh;
+
+    background-image: url("./img/Menu.png");
+    background-size: contain;
+}
+
+#List {
+    position: absolute;
+    left: 0;
+    top: 8vh;
+    width: 100vw;
+    height: 92vh;
+
+    background-color: rgba(80, 80, 80, 1);
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+#List::-webkit-scrollbar {
+    display: none;
+}
+
+#List>* {
+    position: relative;
+    width: 100vw;
+    height: 6vh;
+
+    color: rgba(230, 230, 230, 1);
+    border-bottom: 2px solid rgba(230, 230, 230, 1);
+
+    padding: calc(6vh * 0.1);
+}
+
+#List>*:first-of-type {
+    color: rgba(230, 230, 230, .3);
+}
