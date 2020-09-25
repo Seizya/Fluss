@@ -15,7 +15,11 @@ body {
     left: 0;
     top: 0;
     width: 100vw;
-    height: 8vh;
+    height: 10vh;
+
+    font-size: 6.5vh;
+    line-height: 10vh;
+    text-align: center;
 
     color: rgba(230, 230, 230, 1);
 
@@ -25,10 +29,10 @@ body {
 
 #header_icon {
     position: absolute;
-    left: 1vh;
-    top: 1vh;
-    width: 6vh;
-    height: 6vh;
+    left: 1.5vh;
+    top: 1.5vh;
+    width: 7vh;
+    height: 7vh;
 
     background-image: url("./img/Menu.png");
     background-size: contain;
@@ -37,9 +41,9 @@ body {
 #List {
     position: absolute;
     left: 0;
-    top: 8vh;
+    top: 10vh;
     width: 100vw;
-    height: 92vh;
+    height: 90vh;
 
     background-color: rgba(80, 80, 80, 1);
 
@@ -55,7 +59,10 @@ body {
 #List>* {
     position: relative;
     width: 100vw;
-    height: 6vh;
+    height: 8vh;
+
+    font-size: 4vh;
+    line-height: 8vh;
 
     color: rgba(230, 230, 230, 1);
     border-bottom: 1px solid rgba(230, 230, 230, 1);
