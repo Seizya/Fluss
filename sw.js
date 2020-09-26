@@ -34,7 +34,7 @@ self.addEventListener('fetch', function (event) {
             .then(function (response) {
                 return response || fetch(event.request).then(function (cache) {
                     console.log(`[Service Worker] Caching new resource: ${event.request}`);
-                    cache.put(event.request, response.clone());
+                    cache.open(CACHE_NAME).put(event.request, response.clone());
                     return response;
                 });
             })
