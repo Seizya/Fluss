@@ -7,6 +7,8 @@ const urlsToCache = [
     "./manifest.json",
     "./main.js",
     "./main.css"
+    "./Seifuncs/main.js",
+    "./Seifuncs/config.js"
 ];
 
 // インストール処理
