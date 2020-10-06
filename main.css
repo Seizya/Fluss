@@ -15,37 +15,53 @@ body {
     left: 0;
     top: 0;
     width: 100vw;
-    height: 10vh;
+    height: 12vh;
 
-    font-size: 6.5vh;
-    line-height: 10vh;
+    font-size: 8vh;
+    line-height: 12vh;
     text-align: center;
 
-    color: rgba(230, 230, 230, 1);
+    /* color: rgba(230, 230, 230, 1); */
 
     background-color: rgba(00, 76, 113, 1);
-    border-bottom: 2px solid rgba(230, 230, 230, 1);
+    /* border-bottom: 2px solid rgba(230, 230, 230, 1); */
 }
 
 #header_icon {
     position: absolute;
-    left: 1.5vh;
-    top: 1.5vh;
-    width: 7vh;
-    height: 7vh;
+    left: 2vh;
+    top: 2vh;
+    width: 8vh;
+    height: 8vh;
 
     background-image: url("./img/Menu.png");
     background-size: contain;
 }
 
+#header_title {
+    position: absolute;
+    left: 0;
+    top: 20%;
+    width: 100%;
+    height: 60%;
+
+    background-image: url("./img/Header.png");
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* ------------------------------------------- */
+
 #List {
     position: absolute;
     left: 0;
-    top: 10vh;
+    top: 12vh;
     width: 100vw;
-    height: 90vh;
+    height: 88vh;
 
     background-color: rgba(80, 80, 80, 1);
+    font-size: 6vh;
 
     overflow-x: hidden;
     overflow-y: scroll;
@@ -56,20 +72,101 @@ body {
     display: none;
 }
 
-#List>* {
+#List * {
     position: relative;
+    right: 0;
     width: 100vw;
-    height: 8vh;
 
-    font-size: 4vh;
-    line-height: 8vh;
+    overflow: hidden;
+    background-color: inherit;
 
+    user-select: none;
+}
+
+#List span {
+    vertical-align: middle;
+    border: none;
+    pointer-events: none;
+}
+
+/* ------------------------------------------- */
+
+#List li {
+    height: 10vh;
+
+    line-height: 10vh;
+
+    border-top: 1px dashed rgba(230, 230, 230, .2);
     color: rgba(230, 230, 230, 1);
-    border-bottom: 1px solid rgba(230, 230, 230, 1);
 
-    padding: calc(6vh * 0.1);
+    cursor: pointer;
 }
 
-#List>*:first-of-type {
-    color: rgba(230, 230, 230, .3);
+#List>li {
+    border-top: 1px solid rgba(230, 230, 230, .5);
 }
+
+#List ul>li {
+    font-size: 85%;
+}
+
+/* ------------------------------------------- */
+
+#List ul {
+    left: 1.8vh;
+    height: 0;
+    width: calc(100% - 1.8vh);
+    font-size: inherit;
+
+    padding: 0;
+    border: none;
+}
+
+#List ul.open {
+    height: auto;
+    border-left: 1px dashed rgba(230, 230, 230, .2);
+}
+
+#List ul.open+* {
+    position: relative;
+    box-shadow: rgba(0, 0, 0, .3) 0 -1px 5px;
+}
+
+/* ------------------------------------------- */
+
+#List li.button::before {
+    content: "";
+
+    display: inline-block;
+    margin-left: 1vh;
+    margin-right: 1vh;
+    width: 2vh;
+    height: 2vh;
+
+    border: 0.1rem solid;
+    border-color: rgba(200, 200, 200, 1) rgba(200, 200, 200, 1) transparent transparent;
+    box-sizing: border-box;
+
+    transform: translateY(-1.14vh) rotate(135deg);
+    transition-duration: .1s;
+}
+
+#List li.button.active::before {
+    transform: translateY(0) rotate(-45deg);
+    transition-duration: .1s;
+}
+
+#List li:not(.button)::before {
+    content: "";
+
+    display: inline-block;
+    margin-left: 1.2vh;
+    margin-right: 1.2vh;
+    width: 1.4vh;
+    height: 0.1rem;
+
+    background-color: rgba(200, 200, 200, 1);
+    transform: translateY(-1vh);
+}
+
+/* ------------------------------------------- */

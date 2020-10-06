@@ -35,11 +35,28 @@
     <body>
         <div id="header">
             <div id="header_icon"></div>
-            Fluss
+            <div id="header_title"></div>
         </div>
+
         <ul id="List">
-            <li class="start add text-contain">Memoを追加する</li>
+            <li id="01" class="button"><span>01</span></li>
+            <ul id="tes">
+                <li class="button"><span>01a</span></li>
+                <ul>
+                    <li>01aα</li>
+                </ul>
+                <li><span>01b</span></li>
+            </ul>
+
+            <li><span>02</span></li>
         </ul>
+
+        <script>
+            document.querySelectorAll(".button").forEach(_E0 => _E0.addEventListener("click", () => {
+                _E0.classList.toggle("active");
+                _E0.nextElementSibling.classList.toggle("open")
+            }))
+        </script>
     </body>
 
 </html>
