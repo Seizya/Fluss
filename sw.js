@@ -6,7 +6,7 @@ const urlsToCache = [
     "./img/icon.png",
     "./manifest.json",
     "./main.js",
-    "./main.css"
+    "./main.css",
     "./Seifuncs/main.js",
     "./Seifuncs/config.js"
 ];
