@@ -11,55 +11,55 @@ body {
     height: 100vh;
 }
 
-#header {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 11vh;
+/* ------------------------------------------- */
 
-    font-size: 8vh;
-    line-height: 11vh;
-    text-align: center;
+.menu_button {
+    position: fixed;
+    border-radius: 50%;
 
-    /* color: rgba(230, 230, 230, 1); */
+    box-shadow: rgba(0, 0, 0, .8) 0 0 8px;
+}
+
+.menu_button:not(open) {
+    right: 9vh;
+    bottom: 8vh;
+    width: 0;
+    height: 0;
+}
+
+.menu_button.open {
+    right: 4vh;
+    width: 10vh;
+    height: 10vh;
+}
+
+#menu_button_add {
+    right: 3vh;
+    bottom: 3vh;
+    width: 12vh;
+    height: 12vh;
 
     background-color: rgba(00, 76, 113, 1);
-    /* border-bottom: 2px solid rgba(230, 230, 230, 1); */
-}
-
-#header_icon {
-    position: absolute;
-    left: 2vh;
-    top: 2vh;
-    width: 7vh;
-    height: 8vh;
-
-    background-image: url("./img/Menu.png");
-    background-size: contain;
-}
-
-#header_title {
-    position: absolute;
-    left: 0;
-    top: 25%;
-    width: 100%;
-    height: 50%;
-
-    background-image: url("./img/Header.png");
-    background-position: center center;
-    background-size: contain;
+    background-image: url("./img/menu_button_add.png");
     background-repeat: no-repeat;
+    background-size: 55%;
+    background-position: center;
+    /* border: 2px solid rgba(230, 230, 230, 1); */
+}
+
+#menu_button_setting {
+    bottom: 18vh;
+    background-color: pink;
 }
 
 /* ------------------------------------------- */
 
 #List {
-    position: absolute;
+    position: fixed;
     left: 0;
-    top: 11vh;
+    top: 0;
     width: 100vw;
-    height: 89vh;
+    height: 100vh;
 
     background-color: rgba(80, 80, 80, 1);
     font-size: 4.5vh;
@@ -76,7 +76,7 @@ body {
 #List * {
     position: relative;
     right: 0;
-    width: 100vw;
+    width: 100%;
 
     overflow: hidden;
     background-color: inherit;
@@ -93,18 +93,18 @@ body {
 /* ------------------------------------------- */
 
 #List li {
-    height: 10vh;
+    height: 11vh;
 
     line-height: 10vh;
 
-    border-top: 1px dashed rgba(230, 230, 230, .2);
+    border-top: 3px dashed rgba(230, 230, 230, .2);
     color: rgba(230, 230, 230, 1);
 
     cursor: pointer;
 }
 
 #List>li {
-    border-top: 1px solid rgba(230, 230, 230, .5);
+    border-top: 3px solid rgba(230, 230, 230, .5);
 }
 
 #List ul>li,
@@ -125,12 +125,12 @@ body {
 
 #List ul.open {
     height: auto;
-    border-left: 1px dashed rgba(230, 230, 230, .2);
+    border-left: 3px dashed rgba(230, 230, 230, .2);
 }
 
 #List ul.open+* {
     position: relative;
-    box-shadow: rgba(0, 0, 0, .3) 0 -1px 5px;
+    box-shadow: rgba(0, 0, 0, .5) 0 -1px 8px;
 }
 
 /* ------------------------------------------- */

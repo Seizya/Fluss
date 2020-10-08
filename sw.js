@@ -4,11 +4,12 @@ const urlsToCache = [
     "./",
     "./index.html",
     "./img/icon.png",
+    "./img/Menu.png",
     "./manifest.json",
     "./main.js",
     "./main.css",
     "./Seifuncs/main.js",
-    "./Seifuncs/config.js"
+    "./Seifuncs/config.json"
 ];
 
 // インストール処理

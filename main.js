@@ -17,18 +17,18 @@ class Memo extends Map {
     die() {}
 };
 
-document.querySelectorAll(".button").forEach(_E0 => _E0.addEventListener("click", () => {
-            	if(_E0.classList.contains("active")){
-	            	_E0.classList.remove("active");
-					_E0.nextElementSibling.descendantFlat().forEach(_E1 => {
-						if (_E1.tagName == "LI" ){
-							 _E1.classList.remove("active")
-						 }else{ 
-							_E1.classList.remove("open")
-						}
-					});
-				}else{
-					_E0.classList.add("active");
-	                _E0.nextElementSibling.classList.add("open")
-				}
-            }))
+document.querySelectorAll(".button").forEach(_E0 => _E0.addEventListener("touchend", () => {
+    if (_E0.classList.contains("active")) {
+        _E0.classList.remove("active");
+        _E0.nextElementSibling.descendantFlat().forEach(_E1 => {
+            if (_E1.tagName == "LI") {
+                _E1.classList.remove("active")
+            } else {
+                _E1.classList.remove("open")
+            }
+        });
+    } else {
+        _E0.classList.add("active");
+        _E0.nextElementSibling.classList.add("open")
+    }
+}));
