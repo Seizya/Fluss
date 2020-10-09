@@ -2,12 +2,13 @@
 const CACHE_NAME = 'fluss_cash-01';
 const urlsToCache = [
     "./",
-    "./index.html",
-    "./img/icon.png",
-    "./img/Menu.png",
     "./manifest.json",
+    "./index.html",
     "./main.js",
     "./main.css",
+    "./img/icon.png",
+    "./img/menu_button_add.png",
+    "./img/menu_button_setting.png",
     "./Seifuncs/main.js",
     "./Seifuncs/config.json"
 ];

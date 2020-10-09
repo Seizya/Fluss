@@ -32,3 +32,8 @@ document.querySelectorAll(".button").forEach(_E0 => _E0.addEventListener("touche
         _E0.nextElementSibling.classList.add("open")
     }
 }));
+
+document.querySelectorAll("#menu_button_add")[0].addEventTask("touchlong", () => {
+    console.log("longtouch")
+    document.querySelectorAll(".menu_button").forEach(_E0 => _E0.classList.toggle("open"))
+}, 100)

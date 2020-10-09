@@ -15,23 +15,24 @@ body {
 
 .menu_button {
     position: fixed;
-    border-radius: 50%;
-
-    box-shadow: rgba(0, 0, 0, .8) 0 0 8px;
-}
-
-.menu_button:not(open) {
-    right: 9vh;
-    bottom: 8vh;
-    width: 0;
-    height: 0;
-}
-
-.menu_button.open {
     right: 4vh;
     width: 10vh;
     height: 10vh;
+    border-radius: 50%;
+
+    box-shadow: rgba(0, 0, 0, .8) 0 0 8px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+
+    transition-duration: .1s;
 }
+
+.menu_button:not(open) {
+    bottom: 4vh;
+}
+
+.menu_button.open {}
 
 #menu_button_add {
     right: 3vh;
@@ -41,15 +42,22 @@ body {
 
     background-color: rgba(00, 76, 113, 1);
     background-image: url("./img/menu_button_add.png");
-    background-repeat: no-repeat;
     background-size: 55%;
-    background-position: center;
     /* border: 2px solid rgba(230, 230, 230, 1); */
 }
 
+#menu_button_add.open {
+    box-shadow: rgba(230, 230, 230, .8) 0 0 10px;
+}
+
 #menu_button_setting {
+    background-color: rgba(19, 74, 99, 1);
+    background-image: url("./img/menu_button_setting.png");
+    background-size: 60%;
+}
+
+#menu_button_setting.open {
     bottom: 18vh;
-    background-color: pink;
 }
 
 /* ------------------------------------------- */
