@@ -6,9 +6,11 @@ const urlsToCache = [
     "./index.html",
     "./main.js",
     "./main.css",
+    //Image--------
     "./img/icon.png",
     "./img/menu_button_add.png",
     "./img/menu_button_setting.png",
+    //Seifuncs-----
     "./Seifuncs/main.js",
     "./Seifuncs/config.json"
 ];

@@ -34,6 +34,11 @@ body {
 
 .menu_button.open {}
 
+.menu_button.active {
+    background-color: rgba(239, 69, 74, 1);
+    box-shadow: rgba(230, 230, 230, .8) 0 0 10px;
+}
+
 #menu_button_add {
     right: 3vh;
     bottom: 3vh;
@@ -50,10 +55,18 @@ body {
     box-shadow: rgba(230, 230, 230, .8) 0 0 10px;
 }
 
+#menu_button_add.active {
+    background-color: rgba(234, 0, 50, 1);
+    /* background-color: #EA0032; */
+}
+
 #menu_button_setting {
-    background-color: rgba(19, 74, 99, 1);
     background-image: url("./img/menu_button_setting.png");
     background-size: 60%;
+}
+
+#menu_button_setting:not(.active) {
+    background-color: rgba(19, 74, 99, 1);
 }
 
 #menu_button_setting.open {
@@ -123,11 +136,12 @@ body {
 /* ------------------------------------------- */
 
 #List ul {
-    left: 1.8vh;
+    /* left: 1.8vh; */
     height: 0;
-    width: calc(100% - 1.8vh);
+    /* width: calc(100% - 1.8vh); */
 
     padding: 0;
+    padding-left: 1.8vh;
     border: none;
 }
 
@@ -136,9 +150,13 @@ body {
     border-left: 3px dashed rgba(230, 230, 230, .2);
 }
 
+#List ul.open>li {
+    border-left: 3px dashed rgba(230, 230, 230, .2);
+}
+
 #List ul.open+* {
     position: relative;
-    box-shadow: rgba(0, 0, 0, .5) 0 -1px 8px;
+    box-shadow: rgba(0, 0, 0, .4) 0 -8px 10px -10px;
 }
 
 /* ------------------------------------------- */
@@ -147,6 +165,7 @@ body {
     content: "";
 
     display: inline-block;
+    margin-top: calc(11vh /2 - 2vh/2);
     margin-left: 1vh;
     margin-right: 1vh;
     width: 2vh;
@@ -156,12 +175,12 @@ body {
     border-color: rgba(200, 200, 200, 1) rgba(200, 200, 200, 1) transparent transparent;
     box-sizing: border-box;
 
-    transform: translateX(-0.5vh) translateY(-0.57vh) rotate(45deg);
+    transform: translateX(-0.5vh) rotate(45deg);
     transition-duration: .1s;
 }
 
 #List li.button.active::before {
-    transform: translateY(-1.14vh) rotate(135deg);
+    transform: translateY(-0.57vh) rotate(135deg);
     transition-duration: .1s;
 }
 
@@ -169,6 +188,7 @@ body {
     content: "";
 
     display: inline-block;
+    margin-top: calc(11vh /2 - 0.5rem/2);
     margin-left: 1.2vh;
     margin-right: 1.2vh;
     width: 1.6vh;
@@ -182,3 +202,17 @@ body {
 }
 
 /* ------------------------------------------- */
+
+#menu_setting,
+#menu_setting+ul li {
+    color: rgba(30, 30, 30, 1) !important;
+}
+
+#menu_setting:not(.open) {
+    height: 0;
+    border: none;
+}
+
+#menu_setting.open {
+    height: 11vh;
+}
