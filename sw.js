@@ -6,6 +6,7 @@ const urlsToCache = [
     "./index.html",
     "./main.js",
     "./main.css",
+    "./SourceHanSans-ExtraLight.otf",
     //Image--------
     "./img/icon.png",
     "./img/menu_button_add.png",

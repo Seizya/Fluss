@@ -1,3 +1,10 @@
+:root {
+    --border-color: rgba(230, 230, 230, .35);
+    --text-color: rgba(230, 230, 230, 1);
+    --node-branch: 3vh;
+    --node-height: 6vh;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +18,15 @@ body {
     height: 100vh;
 }
 
+@font-face {
+    font-family: 'Genzi';
+    src: url("./SourceHanSans-ExtraLight.otf");
+}
+
+body {
+    font-family: Genzi;
+}
+
 /* ------------------------------------------- */
 
 .menu_button {
@@ -20,6 +36,7 @@ body {
     height: 10vh;
     border-radius: 50%;
 
+    background-color: rgba(19, 74, 99, 1);
     box-shadow: rgba(0, 0, 0, .8) 0 0 8px;
     background-repeat: no-repeat;
     background-size: contain;
@@ -57,16 +74,11 @@ body {
 
 #menu_button_add.active {
     background-color: rgba(234, 0, 50, 1);
-    /* background-color: #EA0032; */
 }
 
 #menu_button_setting {
     background-image: url("./img/menu_button_setting.png");
     background-size: 60%;
-}
-
-#menu_button_setting:not(.active) {
-    background-color: rgba(19, 74, 99, 1);
 }
 
 #menu_button_setting.open {
@@ -83,7 +95,9 @@ body {
     height: 100vh;
 
     background-color: rgba(80, 80, 80, 1);
-    font-size: 4.5vh;
+    /*Temp*/
+    font-size: calc(var(--node-height)*0.64);
+    font-weight: lighter;
 
     overflow-x: hidden;
     overflow-y: scroll;
@@ -101,37 +115,63 @@ body {
 
     overflow: hidden;
     background-color: inherit;
+    /*Temp*/
 
     user-select: none;
 }
 
 #List span {
-    vertical-align: middle;
     border: none;
     pointer-events: none;
+    /* vertical-align: baseline; */
+    /* font-weight:bold; */
+}
+
+#List :not(.active) span {
+    /* vertical-align: middle; */
+}
+
+#List {
+    padding-top: var(--node-branch);
+}
+
+#List ul,
+#List li {
+    margin-left: var(--node-branch);
 }
 
 /* ------------------------------------------- */
 
 #List li {
-    height: 11vh;
+    height: var(--node-height);
 
-    line-height: 10vh;
+    line-height: var(--node-height);
 
-    border-top: 3px dashed rgba(230, 230, 230, .2);
-    color: rgba(230, 230, 230, 1);
+    /* border-top: 3px solid var(--border-color); */
+    color: var(--text-color);
 
     cursor: pointer;
 }
 
-#List>li {
-    border-top: 3px solid rgba(230, 230, 230, .5);
+#List li.sleep {
+    height: 0;
+    border: none;
 }
 
 #List ul>li,
 #List ul {
-    font-size: calc(100% - 0.4vh);
+    font-size: calc(100% - 0.15vh);
 }
+
+#List li.active {
+    margin-top: var(--node-branch);
+    border-radius: calc(var(--node-height)/3) 0 0 0;
+}
+
+/* 
+Disables margin-top for the eldest son element that does not have class sleep.
+I'm frustrated, so I'll control it with Javascript. 
+*/
 
 /* ------------------------------------------- */
 
@@ -141,60 +181,132 @@ body {
     /* width: calc(100% - 1.8vh); */
 
     padding: 0;
-    padding-left: 1.8vh;
+    /* padding-left: 3vh; */
+    padding-bottom: none;
     border: none;
 }
 
 #List ul.open {
     height: auto;
-    border-left: 3px dashed rgba(230, 230, 230, .2);
+    padding-bottom: 3vh;
+    border-radius: 0 0 0 calc(var(--node-height)/3);
 }
 
-#List ul.open>li {
-    border-left: 3px dashed rgba(230, 230, 230, .2);
-}
-
-#List ul.open+* {
+/* #List ul.open+* {
     position: relative;
     box-shadow: rgba(0, 0, 0, .4) 0 -8px 10px -10px;
+} */
+
+#List ul.open {
+    margin-bottom: var(--node-branch);
+}
+
+/* 
+Disables margin-top for the youngest son element that does not have class sleep.
+I'm frustrated, so I'll control it with Javascript. 
+*/
+
+/* -border--------- */
+
+#List ul,
+#List li {
+    /* border-left: 3px solid transparent; */
+    border-left: 3px solid var(--border-color);
+}
+
+#List li:not(.sleep).active {
+    border-top: 4px solid var(--border-color);
+}
+
+#List ul.open {
+    border-bottom: 4px solid var(--border-color);
+}
+
+#List ul.open>li:first-of-type:not(.active) {
+    /* border-top: 3px dashed var(--border-color); */
+}
+
+#List ul.open+li,
+#List li.active {
+    /* border-top: 3px solid var(--border-color); */
+}
+
+#List ul.open>li:last-of-type:not(.active) {
+    /* border-bottom: 3px dashed var(--border-color); */
+}
+
+#List ul.open>ul:last-of-type.open {
+    /* border-bottom: 3px solid  var(--border-color); */
+}
+
+#List ul.open,
+#List li.active {
+    border-left: 4px solid var(--border-color);
+}
+
+#List ul.open>li:not(.active) {
+    /* border-left: 3px dashed var(--border-color); */
+}
+
+/* #List ul.open, */
+#List li.active {
+    /* color: rgba(239, 69, 74, 1); */
+    /* border-left: 3px solid rgba(239, 69, 74, .8) !important; */
+}
+
+#List>ul,
+#List>li {
+    /* border-left: none !important; */
 }
 
 /* ------------------------------------------- */
 
+#List li {
+    padding-left: calc(1vh*2 + 1.5vh);
+}
+
 #List li.button::before {
     content: "";
 
-    display: inline-block;
-    margin-top: calc(11vh /2 - 2vh/2);
-    margin-left: 1vh;
-    margin-right: 1vh;
-    width: 2vh;
-    height: 2vh;
+    /* display: inline-block; */
+    position: absolute;
+    top: calc(var(--node-height) /2 - 1.5vh/2);
+    left: 1vh;
+    /* margin-top: calc(var(--node-height) /2 - 1.3vh/2); */
+    /* margin-left: 1vh; */
+    /* margin-right: 1vh; */
+    width: 1.5vh;
+    height: 1.5vh;
 
-    border: 0.5rem solid;
+    border: 0.4rem solid;
     border-color: rgba(200, 200, 200, 1) rgba(200, 200, 200, 1) transparent transparent;
     box-sizing: border-box;
 
-    transform: translateX(-0.5vh) rotate(45deg);
+    transform-origin: center center;
+    transform: translateX(calc(-1.5vh / 2.8284271247461903)) rotate(45deg);
     transition-duration: .1s;
 }
 
 #List li.button.active::before {
-    transform: translateY(-0.57vh) rotate(135deg);
+    transform: translateY(calc(-1.5vh / 2.8284271247461903)) rotate(135deg);
     transition-duration: .1s;
+    border-color: rgba(239, 69, 74, 1) rgba(239, 69, 74, 1) transparent transparent;
 }
 
 #List li:not(.button)::before {
     content: "";
 
-    display: inline-block;
-    margin-top: calc(11vh /2 - 0.5rem/2);
-    margin-left: 1.2vh;
-    margin-right: 1.2vh;
-    width: 1.6vh;
-    height: 1.6vh;
+    /* display: inline-block; */
+    position: absolute;
+    top: calc(var(--node-height) /2 - 0.4rem/2);
+    left: 1vh;
+    /* margin-top: calc(var(--node-height) /2 - 1.3vh/2); */
+    /* margin-left: 1vh; */
+    /* margin-right: 1vh; */
+    width: 1.5vh;
+    height: 1.5vh;
 
-    border-top: 0.5rem solid rgba(200, 200, 200, 0.3);
+    border-top: 0.4rem solid rgba(200, 200, 200, 0.3);
     box-sizing: border-box;
 
     /* transform: translateY(-1vh); */
@@ -205,14 +317,20 @@ body {
 
 #menu_setting,
 #menu_setting+ul li {
-    color: rgba(30, 30, 30, 1) !important;
+    /* color: rgba(50, 50, 50, 1) !important; */
 }
 
-#menu_setting:not(.open) {
-    height: 0;
-    border: none;
+#menu_setting,
+#menu_setting+*,
+#menu_setting+* * {
+    /* border-color: rgba(100, 100, 100, .2) !important; */
 }
 
-#menu_setting.open {
-    height: 11vh;
+#menu_setting::before,
+#menu_setting+* li.button::before {
+    /* border-color: rgba(100, 100, 100, .7) rgba(100, 100, 100, .7) transparent transparent !important; */
+}
+
+#menu_setting+* li:not(.button) {
+    /* border-color: rgba(100, 100, 100, .5) !important; */
 }
