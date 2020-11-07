@@ -1,5 +1,6 @@
 :root {
-    --border-color: rgba(230, 230, 230, .35);
+    --border-color: rgba(230, 230, 230, .18);
+    --border-color-1: rgba(230, 230, 230, .6);
     --text-color: rgba(230, 230, 230, 1);
     --node-branch: 3vh;
     --node-height: 6vh;
@@ -96,7 +97,7 @@ body {
 
     background-color: rgba(80, 80, 80, 1);
     /*Temp*/
-    font-size: calc(var(--node-height)*0.64);
+    font-size: calc(var(--node-height)*0.62);
     font-weight: lighter;
 
     overflow-x: hidden;
@@ -178,7 +179,12 @@ I'm frustrated, so I'll control it with Javascript.
 #List ul {
     /* left: 1.8vh; */
     height: 0;
+    /* height: auto; */
     /* width: calc(100% - 1.8vh); */
+    /* transform: scaleY(0); */
+    transform-origin: top;
+    transition-timing-function: ease-in;
+    /* transition-duration: 200ms; */
 
     padding: 0;
     /* padding-left: 3vh; */
@@ -188,8 +194,13 @@ I'm frustrated, so I'll control it with Javascript.
 
 #List ul.open {
     height: auto;
+    /* transform: scaleY(1); */
     padding-bottom: 3vh;
     border-radius: 0 0 0 calc(var(--node-height)/3);
+}
+
+#List ul:not(.open) {
+    transform: scaleY(0);
 }
 
 /* #List ul.open+* {
@@ -210,16 +221,21 @@ I'm frustrated, so I'll control it with Javascript.
 
 #List ul,
 #List li {
-    /* border-left: 3px solid transparent; */
-    border-left: 3px solid var(--border-color);
+    border-left-width: 4px;
+    border-left-style: solid;
+
+    transition-duration: 80ms;
 }
 
 #List li:not(.sleep).active {
-    border-top: 4px solid var(--border-color);
+    border-top-width: 3px;
+    border-top-style: solid;
 }
 
 #List ul.open {
-    border-bottom: 4px solid var(--border-color);
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+
 }
 
 #List ul.open>li:first-of-type:not(.active) {
@@ -241,7 +257,8 @@ I'm frustrated, so I'll control it with Javascript.
 
 #List ul.open,
 #List li.active {
-    border-left: 4px solid var(--border-color);
+    /* border-left: 3px solid rgba(234, 0, 50, 1); */
+    border-left: 3px solid var(--border-color);
 }
 
 #List ul.open>li:not(.active) {
@@ -257,6 +274,35 @@ I'm frustrated, so I'll control it with Javascript.
 #List>ul,
 #List>li {
     /* border-left: none !important; */
+}
+
+/* -border------------------------------- */
+
+#List .color_cycle_0 {
+    border-color: rgba(255, 215, 0, 1);
+}
+
+#List .color_cycle_0.active,
+#List .color_cycle_0.open {
+    border-color: rgba(255, 215, 0, .5);
+}
+
+#List .color_cycle_1 {
+    border-color: rgba(218, 112, 214, 1);
+}
+
+#List .color_cycle_1.active,
+#List .color_cycle_1.open {
+    border-color: rgba(218, 112, 214, .5);
+}
+
+#List .color_cycle_2 {
+    border-color: rgba(135, 206, 250, 1);
+}
+
+#List .color_cycle_2.active,
+#List .color_cycle_2.open {
+    border-color: rgba(135, 206, 250, .5);
 }
 
 /* ------------------------------------------- */
